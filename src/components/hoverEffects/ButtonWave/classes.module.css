@@ -1,0 +1,41 @@
+.button {
+    background: #131113;
+    border: 3px solid #56ea32;
+    box-sizing: border-box;
+    color: #56ea32;
+    font-size: 40px;
+    padding: 15px 35px;
+    overflow: hidden;
+    transition: color .3s;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+}
+
+.button:hover {
+    color: #131113;
+}
+
+.button > span:first-child {
+    display: block;
+    width: 0;
+    height: 0;
+    transition: width .5s, height .5s;
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+    background: #56ea32;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.button:hover > span:first-child {
+    width: var(--size);
+    height: var(--size);
+}
+
+.button > :nth-child(2) {
+    position: relative;
+    z-index: 100;
+}

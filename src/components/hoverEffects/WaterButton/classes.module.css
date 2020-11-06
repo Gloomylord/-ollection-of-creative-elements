@@ -1,0 +1,85 @@
+.button {
+    background: #4973ff;
+    color: #fff;
+    padding: 20px 35px;
+    width: 280px;
+    height: 60px;
+    border: 0;
+    font-size: 25px;
+    font-weight: 400;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-radius .2s .0s, box-shadow ease .4s 0s;
+    border-radius: 0 0 10px 10px;
+}
+
+.button:hover  {
+    border-radius: 10px;
+    box-shadow: 0 0 10px #4973ff,
+    0 0 25px #4973ff,
+    0 0 50px #4973ff;
+    transition: border-radius .2s .8s, box-shadow ease .4s .8s;
+}
+
+.button:hover .wave:after{
+    top: -50px;
+    transition: top .8s ease 0s;
+}
+
+.button:hover .wave:before {
+    top: -50px;
+    transition: top .8s ease 0s;
+}
+
+.button > span {
+    z-index: 10;
+    position: relative;
+}
+
+.wave {
+    width: 280px;
+    height: 280px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.wave:before {
+    content: '';
+    background: #131113;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 250%;
+    height: 250%;
+    transform: translate(-50%, -96%);
+    border-radius: 48%;
+    animation: rotate 5s linear infinite;
+    transition: top .8s ease .4s;
+}
+
+.wave:after {
+    content: '';
+    background: rgba(19, 17, 19, 0.51);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 250%;
+    height: 250%;
+    transform: translate(-50%, -96%);
+    border-radius: 44%;
+    animation: rotate 10s linear infinite;
+    transition: top .8s  ease .4s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -96%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -96%) rotate(360deg);
+    }
+}
+
