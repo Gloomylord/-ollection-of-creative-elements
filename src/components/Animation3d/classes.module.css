@@ -1,0 +1,119 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #ffe80e;
+    overflow: hidden;
+}
+
+.container * {
+    transform-style: preserve-3d;
+    box-sizing: border-box;
+}
+
+.inputsContainer {
+    position: relative;
+}
+
+::selection {
+    background: rgba(47, 86, 255, 0.54);
+}
+
+.rotateContainer {
+    transform-style: preserve-3d;
+    animation: animate 10s linear infinite;
+}
+
+.inputsContainer input {
+    position: relative;
+    width: 400px;
+    height: 60px;
+    font-size: 50px;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    background: rgba(0, 0, 0, .6);
+    outline: none;
+    padding: 10px;
+}
+
+.inputsContainer > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputsContainer > :first-child {
+    position: relative;
+    transform: translateZ(30px);
+}
+
+.inputsContainer > :nth-child(2) {
+    transform-origin: center 100%;
+    transform: rotateX(90deg) translateY(50%);
+}
+
+.inputsContainer > :nth-child(3) {
+    transform-origin: center;
+    transform: translateZ(-30px) rotateX(180deg);
+}
+
+.inputsContainer > :nth-child(4) {
+    transform-origin: center 0;
+    transform: rotateX(-270deg) translateY(-50%);
+}
+
+.decoration {
+    position: relative;
+    transform: translateY(-30px);
+    align-self: center;
+}
+
+.decoration :first-child {
+    background: #fff;
+    width: 300px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    transform: translate(-50% ,-50%) translateZ(300px) rotateZ(30deg);
+}
+
+.inputsContainer > :nth-child(4) .decoration :first-child {
+    transform: translate(-50% ,-50%) translateZ(-300px) rotateZ(-30deg);
+}
+
+.decoration :nth-child(2) {
+    background: #ff0047;
+    width: 100px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    transform: translate(-50% ,-50%) translateZ(500px) rotateZ(-30deg);
+}
+
+.inputsContainer > :nth-child(4) .decoration :nth-child(2) {
+    transform: translate(-50% ,-50%) translateZ(-500px) rotateZ(30deg);
+}
+
+.pause {
+    animation-play-state: paused;
+}
+
+.play {
+    animation-play-state: running;
+}
+
+@keyframes animate {
+    0% {
+        transform: perspective(3000px) translateZ(500px) rotateX(0deg) rotateY(-45deg);
+    }
+
+    100% {
+        transform: perspective(3000px) translateZ(500px) rotateX(360deg) rotateY(-45deg);
+    }
+}
