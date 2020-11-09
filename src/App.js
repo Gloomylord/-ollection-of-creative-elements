@@ -1,12 +1,14 @@
 import React, {useState, useCallback} from 'react';
 import './App.css';
-import ButtonWave from "./components/hoverEffects/ButtonWave";
+import ButtonWave from "./components/buttonsHoverEffects/Wave";
 import LoginForm from "./components/LoginForm";
 import Animation3d from "./components/Animation3d";
 import Gallery from "./components/ Gallery";
 import Butterfly from "./components/Butterfly";
 import CardRotate from "./components/Cards/CardRotate";
-import WaterButton from "./components/hoverEffects/WaterButton";
+import WaterButton from "./components/buttonsHoverEffects/Water";
+import ButtonSquares from "./components/buttonsHoverEffects/Square";
+import NavBar from "./components/Navbar";
 
 const card =
     {
@@ -30,23 +32,31 @@ function App() {
 
     return (
         <>
-            <div className="App">
+            <NavBar/>
+            <div id='login_form' className="App">
                 <ButtonWave onClick={openModal}>Login</ButtonWave>
                 {open && <LoginForm open={open} closeModal={closeModal}/>}
             </div>
-            <div className="App">
+            <div id='buttons' className="App">
                 <WaterButton>Water</WaterButton>
+                <ButtonSquares>button</ButtonSquares>
             </div>
-            <Animation3d/>
-            <Gallery/>
-            <div className='cardsContainer'>
+            <div id='3d_inputs'>
+                <Animation3d/>
+            </div>
+            <div id='gallery'>
+                <Gallery/>
+            </div>
+            <div id='cards' className='cardsContainer'>
                 {
                     Array.from({length: 4}).map((_, i) => <CardRotate
                         key={i} {...card}
                         src={card.src(i + 1)}/>)
                 }
             </div>
-            <Butterfly/>
+            <div id='butterfly'>
+                <Butterfly/>
+            </div>
         </>
     );
 }

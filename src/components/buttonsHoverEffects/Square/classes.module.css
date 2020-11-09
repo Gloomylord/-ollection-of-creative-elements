@@ -1,0 +1,77 @@
+.container {
+    background: #1f5259;
+    border-radius: 50px;
+    transform-style: preserve-3d;
+    position: relative;
+    font-family: Arial;
+}
+
+.button {
+    background: #d3e5e6;
+    padding: 15px 45px;
+    font-size: 25px;
+    font-weight: 400;
+    color: #a9a8a9;
+    text-transform: uppercase;
+    position: relative;
+    border-radius: 50px;
+    border: 0;
+    letter-spacing: 10px;
+    transition: .2s;
+    transition-delay: 0s;
+    z-index: 2;
+    outline: none;
+    cursor: pointer;
+}
+
+.container:hover .button {
+    background: #43a5a6;
+    transform: translateY(-6px);
+    color: #fff;
+    transition-delay: .2s;
+}
+
+.button:active {
+    transform: translateY(-4px) !important;
+    transition: .1s ease;
+    transition-delay: 0s;
+}
+
+.square{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotateY(-10deg);
+    border: 2px solid #ee2316;
+    height: 100px;
+    width: 100px;
+    transition: .5s;
+    animation: rotate 16s linear infinite;
+    pointer-events: none;
+    transition-delay: .2s;
+}
+
+.container:hover .square{
+    left: 110%;
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.container:hover :nth-child(2) {
+    left: -10%;
+}
+
+.container :nth-child(2) {
+    animation: rotate 14s linear infinite;
+    animation-delay: -1.5s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%,-50%) rotateY(-10deg) rotateZ(0deg);
+    }
+    100% {
+        transform: translate(-50%,-50%) rotateY(-10deg) rotateZ(360deg);
+    }
+}

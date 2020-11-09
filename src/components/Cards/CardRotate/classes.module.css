@@ -1,6 +1,5 @@
 .container {
     width: 250px;
-    height: 400px;
     position: relative;
     --background-color: #4262ea;
     --border-color: #1e3472;

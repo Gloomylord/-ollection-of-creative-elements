@@ -1,11 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 .App {
     text-align: center;
     height: 100vh;
-    overflow: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background: #131113;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.container {
+
+}
+
+.App > button {
+    margin: 20px;
 }
 
 body {
@@ -24,17 +34,29 @@ body {
     justify-content: space-around;
     align-items: center;
     padding: 0 30px;
+    flex-wrap: wrap;
+}
+
+.cardsContainer > {
+    margin: 0 10px;
 }
 
 #root {
     overflow-y: auto;
     height: 100vh;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
 }
 
 #root > * {
-    height: 100vh;
     scroll-snap-align: start;
+}
+
+@media (max-width: 883px) {
+    #buttons {
+        flex-direction: column;
+    }
 }
 
 @keyframes animate {
