@@ -1,0 +1,134 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ff0047, #9100be);
+}
+
+.main * {
+    transform-style: preserve-3d;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    perspective: 300px;
+    width: 1200px;
+    flex-wrap: wrap;
+}
+
+.container:hover > * {
+    transform: rotateY(20deg);
+}
+
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    transition: .5s;
+    background: transparent;
+}
+
+.shadow {
+    margin: 0 10px;
+    position: relative;
+    height: 280px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    transition: .5s;
+    box-sizing: unset !important;
+    background: transparent;
+}
+
+.box:hover .shadow {
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, .5);
+    z-index: 10;
+}
+
+.box:hover {
+    transform: scale(1.2) !important;
+}
+
+.box:hover ~ .box {
+    transform: rotateY(-20deg);
+}
+
+.imgBx {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: calc(100%);
+    width: calc(100%);
+    background: radial-gradient(transparent, transparent 4px, white 4px, white);
+    background-position: -10px -10px;
+    padding: 0 20px;
+    background-size: 20px 20px;
+}
+
+.imgBx:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    background: linear-gradient(to top, #131113, #f00);
+    transition: .5s;
+    mix-blend-mode: multiply;
+}
+
+.box:hover .imgBx:before {
+    opacity: 1;
+}
+
+
+.imgBx img {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    object-fit: cover;
+}
+
+.content {
+    padding: 5px 25px;
+    color: #fff;
+}
+
+.content h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    transition: .4s;
+    transform: translateY(200px);
+}
+
+.box:hover .content h2 {
+    transform: translateY(0px);
+}
+
+.content p {
+    font-size: 15px;
+    transition: .5s;
+    transform: translateY(200px);
+}
+
+.box:hover .content p {
+    transform: translateY(0px);
+}
+
